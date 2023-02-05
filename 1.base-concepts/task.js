@@ -10,10 +10,13 @@ function solveEquation(a, b, c) {
     if (discriminant === 0) {
       arr = [- b / (2 * a)];
     } else if (discriminant > 0) {
-      arr = [(- b - Math.sqrt(discriminant)) / (2 * a),
-       (- b + Math.sqrt(discriminant)) / (2 * a),
-      ]
-    }
+      arr = [(- b + Math.sqrt(discriminant)) / (2 * a),
+             (- b - Math.sqrt(discriminant)) / (2 * a),
+            ]
+    } /* скрипт для тестирования (tests.js) не верно работает,
+         если в первом корне будет вычисляться 
+         "минус" квадратный корень из дискриминанта.
+      */ 
   }
   
   return arr;
