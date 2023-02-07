@@ -46,16 +46,6 @@ function calculateTotalMortgage(percent, contribution, amount, countMonths) {
   let creditBody = amountIn - contributionIn; // вычисление тела кредита
   let percentMonth = percentIn / 12 / 100 ;
   let everyMonthPay = creditBody * (percentMonth + (percentMonth / (((1 + percentMonth) ** countMonthsIn) - 1)));
-    let stepOne = (1 + percentMonth) ** countMonthsIn;
-    let stepTwo = stepOne - 1;
-    let stepThree = percentMonth / stepTwo;
-    let stepFoure = percentMonth + stepThree;
-    let stepFive = creditBody * stepFoure;
-    let allPay = contributionIn + stepFive * countMonthsIn;
-    
-    console.log(stepOne, stepTwo, stepThree, stepFoure, stepFive, allPay);
-    console.log(everyMonthPay);
-
   let allAmount = contributionIn + everyMonthPay * countMonthsIn;
   
   allAmount = Number(allAmount.toFixed(2));
@@ -64,4 +54,3 @@ function calculateTotalMortgage(percent, contribution, amount, countMonths) {
 
   return allAmount;
 } 
-calculateTotalMortgage(10, 0, 50000, 12);
