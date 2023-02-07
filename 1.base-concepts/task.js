@@ -46,7 +46,7 @@ function calculateTotalMortgage(percent, contribution, amount, countMonths) {
   let creditBody = amountIn - contributionIn; // вычисление тела кредита
   let percentMonth = percentIn / 12 / 100 ;
   let everyMonthPay = creditBody * (percentMonth + (percentMonth / (((1 + percentMonth) ** countMonthsIn) - 1)));
-  let allAmount = contributionIn + everyMonthPay * countMonthsIn;
+  let allAmount = everyMonthPay * countMonthsIn;
   
   allAmount = Number(allAmount.toFixed(2));
 
