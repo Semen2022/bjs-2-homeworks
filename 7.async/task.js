@@ -19,5 +19,14 @@ class  AlarmClock {
                                     time: timeStart,
                                     canCall: true, });
     }
+
+    removeClock(timeAlarmForDelete) {
+        this.alarmCollection = this.alarmCollection.filter(timeDel => timeDel.time !== timeAlarmForDelete);
+    }
+
+    getCurrentFormattedTime() {
+        return new Date().toLocaleTimeString().slice(0,-3);
+    }
+
 }
 
