@@ -32,7 +32,6 @@ class  AlarmClock {
         if (this.intervalId !== null) {
             return;
         }
-
         this.intervalId = setInterval(() => this.alarmCollection.forEach(timeAlarm => {
                 if (timeAlarm.time === this.getCurrentFormattedTime() && timeAlarm.canCall) {
                     timeAlarm.canCall = false;
