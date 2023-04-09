@@ -21,9 +21,8 @@ function cachingDecoratorNew(func) {
     }
     return wrapper;  
 }
-/*
+
 //Задача № 2
 function debounceDecoratorNew(func, delay) {
   
 }
-*/
