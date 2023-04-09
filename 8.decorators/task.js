@@ -32,7 +32,7 @@ function debounceDecoratorNew(func, delay) {
         if (timeoutId === null) {
             func(...args);
             wrapper.count += 1;
-            // timeoutId = setTimeout(() => delay);
+            // timeoutId = setTimeout(() => delay); попытка установить интервал при первом вызове func
         }
 
         if (timeoutId) {
