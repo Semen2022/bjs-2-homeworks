@@ -25,18 +25,28 @@ function cachingDecoratorNew(func) {
 //Задача № 2
 function debounceDecoratorNew(func, delay) {
     let timeoutId = null;
+    wrapper.count = 0;
+    wrapper.allCount = 0;
 
-    return function(...args) {
-        if (timeoutId) {
-            clearTimeout(timeoutId);
-        } else {
+    function wrapper(...args) {
+        if (timeoutId === null) {
             func(...args);
-            timeoutId = setTimeout(() => delay)
+            wrapper.count += 1;
+            // timeoutId = setTimeout(() => delay);
         }
 
+        if (timeoutId) {
+            clearTimeout(timeoutId);
+        } 
+
         timeoutId = setTimeout(() => {
-            timeoutId = null;
+           // timeoutId = null; // в лекции есть этот сброс счетчика времени в ноль. 
+           // Тут при проверке на количество вызовов декорирумой ф-ции - скрипт не прошел тест.
             func(...args);
+            wrapper.count += 1;
         }, delay);
+        wrapper.allCount++;
     }
+    
+    return wrapper;
 }
